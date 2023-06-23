@@ -17,32 +17,32 @@ const Login = () =>{
 sessionStorage.clear();
     },[]);
 
-    const ProceedLogin = (e) => {
-        e.preventDefault();
-        if (validate()) {
-            ///implentation
-            // console.log('proceed');
-            fetch("http://148.251.225.118:3200/api/login" + username).then((res) => {
-                return res.json();
-            }).then((resp) => {
-                //console.log(resp)
-                if (Object.keys(resp).length === 0) {
-                    toast.error('Please Enter valid username');
-                } else {
-                    if (resp.password === password) {
-                        toast.success('Success');
-                        sessionStorage.setItem('username',username);
-                        sessionStorage.setItem('userrole',resp.role);
-                        usenavigate('/')
-                    }else{
-                        toast.error('Please Enter valid credentials');
-                    }
-                }
-            }).catch((err) => {
-                toast.error('Login Failed due to :' + err.message);
-            });
-        }
-    }
+    // const ProceedLogin = (e) => {
+    //     e.preventDefault();
+    //     if (validate()) {
+    //         ///implentation
+    //         // console.log('proceed');
+    //         fetch("http://148.251.225.118:3200/api/login" + username).then((res) => {
+    //             return res.json();
+    //         }).then((resp) => {
+    //             //console.log(resp)
+    //             if (Object.keys(resp).length === 0) {
+    //                 toast.error('Please Enter valid username');
+    //             } else {
+    //                 if (resp.password === password) {
+    //                     toast.success('Success');
+    //                     sessionStorage.setItem('username',username);
+    //                     sessionStorage.setItem('userrole',resp.role);
+    //                     usenavigate('/')
+    //                 }else{
+    //                     toast.error('Please Enter valid credentials');
+    //                 }
+    //             }
+    //         }).catch((err) => {
+    //             toast.error('Login Failed due to :' + err.message);
+    //         });
+    //     }
+    // }
 
     const ProceedLoginusingAPI = (e) => {
         e.preventDefault();
@@ -115,7 +115,7 @@ sessionStorage.clear();
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Login</button> |
-                            <Link className="btn btn-success" to={'/register'}>New User</Link>
+                            {/* <Link className="btn btn-success" to={'/register'}>New User</Link> */}
                         </div>
                     </div>
                 </form>
